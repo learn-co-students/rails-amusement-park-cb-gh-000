@@ -3,13 +3,14 @@ DATA = {
     ["name", "nausea", "happiness", "tickets", "height"],
   :customers => [
     ["Max Charles", 0, 3, 6, 32],
-    ["Mackenzie Foy", 1, 3, 10, 60],
-    ["Maggie Elizabeth Jones", 1, 2, 15, 59],
+    ["Skai Jackson", 1, 3, 10, 60],
+    ["Kaleo Elam", 1, 2, 15, 59],
     ["Megan Charpentier", 3, 1, 12, 60],
     ["Hayden Byerly", 1, 1, 16, 58],
     ["Tenzing Norgay Trainor", 0, 1, 10, 55],
     ["Davis Cleveland", 1, 3, 5, 36],
-    ["Cole Sand", 2, 2, 7, 34]
+    ["Cole Sand", 2, 2, 7, 34],
+    ["Quvenzhané Wallis", 2, 2, 13, 30]
   ],
   :attraction_keys =>
    ["name", "nausea_rating", "happiness_rating", "tickets", "min_height"],
