@@ -1,0 +1,10 @@
+<%= form_for @customer, url: "/customers/login_user" do |f| %>
+
+  <div class="field"><%= f.label :name, "Select your name" %><br>
+    <%= f.collection_select(:id, Customer.all, :id, :name) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign In"  %>
+  </div>
+<% end %>
