@@ -9,22 +9,20 @@
 
   <tbody>
     <tr>
+      <td><strong>Picture</strong></td>
       <td><strong>Name</strong></td>
       <td><strong>Total Rides</strong></td>
-      <td><strong>Options</strong></td>
+      <td><strong>View Page</strong></td>
     </tr>
     <% @attractions.each do |attraction| %>
       <tr>
+        <td><img src="http://<%= attraction.name.gsub(" ", "") %>.jpg.to/" width="100"></td>
         <td><%= attraction.name %></td>
         <td><%= attraction.customers.count %></td>
-        <td><%= link_to 'Show', attraction %></td>
-        <td><%= link_to 'Edit', edit_attraction_path(attraction) %></td>
-        <td><%= link_to 'Destroy', attraction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', customer_attraction_path(@customer, attraction) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Attraction', new_attraction_path %>

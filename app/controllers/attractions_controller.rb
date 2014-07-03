@@ -2,6 +2,7 @@ class AttractionsController < ApplicationController
   before_action :set_attraction, only: [:show, :edit, :update, :destroy]
 
   def index
+    @customer = Customer.find(params[:customer_id])
     @attractions = Attraction.all
   end
 
