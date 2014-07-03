@@ -14,10 +14,10 @@ DATA = {
   :attraction_keys =>
    ["name", "nausea_rating", "happiness_rating", "tickets", "min_height"],
   :attractions => [
-    ["Scrambler", 2, 2, 2, 36],
+    ["Scrambler Ride", 2, 2, 2, 36],
     ["Miniature Railroad", 0, 1, 2, 32],
     ["Merry-Go-Round", 1, 1, 1, 30],
-    ["Wooden Roller Coaster", 1, 3, 4, 54],
+    ["Roller Coaster", 1, 3, 4, 54],
     ["Swinging Ship", 2, 2, 2, 36],
     ["Go Karts", 1, 2, 3, 36],
     ["Haunted House", 0, 1, 1, 30],
