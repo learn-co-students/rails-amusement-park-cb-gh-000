@@ -1,14 +1,17 @@
 <p id="notice"><%= notice %></p>
 
+<% if @message %>
+  <div class="center alert">
+    <p><%= @message %></p>
+  </div>
+<% end %>
+
 <div class="center">
   <div class="pic">
     <img src="http://<%= @customer.name.gsub(" ", "") %>.jpg.to/" height="250">
   </div>
 
-
-
   <div class="info">
-    <p><strong>Message:</strong> <%= @message %></p>
     <p><strong>Name:</strong> <%= @customer.name %></p>
     <p><strong>Tickets:</strong> <%= @customer.tickets %></p>
     <p><strong>Mood:</strong>  <%= @customer.mood %></p>

@@ -6,7 +6,8 @@ class CustomersController < ApplicationController
   end
 
   def show
-    @message = params[:message]
+    @message = params[:message] if params[:message]
+    @message ||= false
   end
 
   def new
