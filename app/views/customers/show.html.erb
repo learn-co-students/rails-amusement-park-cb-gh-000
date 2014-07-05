@@ -5,12 +5,13 @@
     <img src="http://<%= @customer.name.gsub(" ", "") %>.jpg.to/" height="250">
   </div>
 
+
+
   <div class="info">
+    <p><strong>Message:</strong> <%= @message %></p>
     <p><strong>Name:</strong> <%= @customer.name %></p>
     <p><strong>Tickets:</strong> <%= @customer.tickets %></p>
     <p><strong>Mood:</strong>  <%= @customer.mood %></p>
-    <p><strong>Height:</strong> <%= @customer.height %> inches</p>
-    <p><strong>Height:</strong> <%= @customer.height %> inches</p>
     <p><strong>Height:</strong> <%= @customer.height %> inches</p>
     <%= link_to 'Edit', edit_customer_path(@customer) %> |
     <%= link_to 'Back', customers_path %> |

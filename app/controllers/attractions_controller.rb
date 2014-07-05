@@ -7,6 +7,8 @@ class AttractionsController < ApplicationController
   end
 
   def show
+    @customer = Customer.find(params[:customer_id])
+    @ride = Ride.new
   end
 
   def new

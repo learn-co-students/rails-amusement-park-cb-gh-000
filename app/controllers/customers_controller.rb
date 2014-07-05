@@ -6,6 +6,7 @@ class CustomersController < ApplicationController
   end
 
   def show
+    @message = params[:message]
   end
 
   def new
@@ -67,7 +68,7 @@ class CustomersController < ApplicationController
         :height,
         :tickets,
         :happiness,
-        :nausea,
+        :nausea
       )
   end
 end

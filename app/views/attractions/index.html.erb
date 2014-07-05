@@ -18,7 +18,7 @@
       <tr>
         <td><img src="http://<%= attraction.name.gsub(" ", "") %>.jpg.to/" width="100"></td>
         <td><%= attraction.name %></td>
-        <td><%= attraction.customers.count %></td>
+        <td><%= attraction.rides.count %></td>
         <td><%= link_to 'Show', customer_attraction_path(@customer, attraction) %></td>
       </tr>
     <% end %>

@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   get "/customers/login", to: "customers#login"
   post "/customers/login_user", to: "customers#login_user"
 
+  # rides
+  post "/customers/:id/attractions/:id/rides/new", to: "rides#new"
+
   resources :customers do
     resources :attractions
   end
