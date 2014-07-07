@@ -1,10 +1,6 @@
 class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
-
-  def index
-    @customers = Customer.all
-  end
-
+  
   def show
     @message = params[:message] if params[:message]
     @message ||= false

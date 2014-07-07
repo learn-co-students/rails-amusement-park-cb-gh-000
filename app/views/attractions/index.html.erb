@@ -1,5 +1,5 @@
 <h1>Listing attractions</h1>
-
+<p><%= link_to "Back to profile", customer_path(@customer), {:class => "btn btn-primary"} %></p>
 <table>
   <thead>
     <tr>
@@ -11,14 +11,14 @@
     <tr>
       <td><strong>Picture</strong></td>
       <td><strong>Name</strong></td>
-      <td><strong>Total Rides</strong></td>
-      <td><strong>View Page</strong></td>
+      <td><strong>Tickets</strong></td>
+      <td><strong>Details</strong></td>
     </tr>
     <% @attractions.each do |attraction| %>
       <tr>
         <td><img src="http://<%= attraction.name.gsub(" ", "") %>.jpg.to/" width="100"></td>
         <td><%= attraction.name %></td>
-        <td><%= attraction.rides.count %></td>
+        <td><%= attraction.tickets %></td>
         <td><%= link_to 'Show', customer_attraction_path(@customer, attraction) %></td>
       </tr>
     <% end %>

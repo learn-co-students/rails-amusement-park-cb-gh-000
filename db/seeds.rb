@@ -21,8 +21,9 @@ DATA = {
     ["Roller Coaster", 1, 3, 4, 54],
     ["Swinging Ship", 2, 2, 2, 36],
     ["Go Karts", 1, 2, 3, 36],
-    ["Haunted House", 0, 1, 1, 30],
-    ["Ferris Wheel", 1, 1, 2, 36]
+    ["Haunted House", 1, 1, 1, 30],
+    ["Ferris Wheel", 1, 1, 2, 36],
+    ["Teacups Ride", 3, 1, 1, 28]
   ]
 }
 

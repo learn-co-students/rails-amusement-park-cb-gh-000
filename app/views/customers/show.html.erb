@@ -17,7 +17,6 @@
     <p><strong>Mood:</strong>  <%= @customer.mood %></p>
     <p><strong>Height:</strong> <%= @customer.height %> inches</p>
     <%= link_to 'Edit', edit_customer_path(@customer) %> |
-    <%= link_to 'Back', customers_path %> |
     <a href="/customers/<%= @customer.id %>/attractions">Go on a ride!</a>
   </div>
 </div>
