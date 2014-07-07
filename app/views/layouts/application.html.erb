@@ -23,9 +23,15 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="http://api.rubyonrails.org/">Rails Docs</a></li>
-            <li><a href="http://api.rubyonrails.org/classes/ActiveRecord/Base.html">ActiveRecord Docs</a></li>
-        </ul>
+            <% if current_user %>
+              <li><%= link_to "Hello, #{current_user.name}!", user_path(current_user) %></li>
+              <li><%= link_to "Attractions", attractions_path %></li>
+              <li><%= link_to "Log Out", signout_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to "Sign Up", new_user_path %></li>
+              <li><%= link_to "Sign In", signin_path %></li>
+            <% end %>
+          </ul>
         </div><!--/.nav-collapse -->
       </div>
     </div>
