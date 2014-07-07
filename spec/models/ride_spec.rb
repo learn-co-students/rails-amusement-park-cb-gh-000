@@ -2,8 +2,19 @@ require 'rails_helper'
 
 RSpec.describe Ride, :type => :model do
   before :each do 
-    @attraction = FactoryGirl.create(:attraction)
-    @user = FactoryGirl.create(:user)
+    @attraction = Attraction.create(
+      :name => "Roller Coaster",
+      :tickets => 5,
+      :nausea_rating => 2,
+      :happiness_rating => 4,
+      :min_height => 32
+    )
+    @user = User.create(
+      :name => "Mindy",
+      :nausea => 5,
+      :happiness => 3,
+      :tickets => 4
+    )
     @ride = Ride.create(user_id: @attraction.id, attraction_id: @user.id)
   end
 
