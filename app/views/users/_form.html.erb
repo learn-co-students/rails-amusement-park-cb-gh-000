@@ -26,6 +26,11 @@
   <div class="field"><%= f.label :tickets, "How many dollars are in your pocket?" %><br>
   <%= f.number_field :tickets %></div>
 
+  <div class="field">
+    <%= f.label :admin, "Check box if you are a theme park owner" %>
+    <%= f.check_box :admin%>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
