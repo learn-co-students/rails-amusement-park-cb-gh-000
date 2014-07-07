@@ -14,11 +14,15 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        session[:user_id] = @user.id
+        format.html { redirect_to user_path(@user), notice: "Welcome to the theme park!" }
       else
         format.html { render :new }
        end
     end
+  end
+
+  def edit
   end
 
   def update
