@@ -19,10 +19,10 @@
         <td><img src="http://<%= attraction.name.gsub(" ", "") %>.jpg.to/" width="100"></td>
         <td><%= attraction.name %></td>
         <td><%= attraction.tickets %></td>
-        <% if @user %>
-          <td><%= link_to 'Show', user_attraction_path(@user, attraction) %></td>
-        <% else %>
+        <% if current_user.admin %>
           <td><%= link_to 'Show', attraction_path(attraction) %></td>
+        <% else %>
+          <td><%= link_to "Go on #{attraction.name}", attraction_path(attraction) %></td>
         <% end %>
       </tr>
     <% end %>
