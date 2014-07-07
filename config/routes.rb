@@ -4,9 +4,10 @@ Rails.application.routes.draw do
   root "static_pages#home"
 
   # sessions
-  get "users/signin", to: "users#signin"
-  post "users/login", to: "users#login"
-  
+  get "/signin", to: "sessions#new"
+  post "/sessions/create", to: "sessions#create"
+  delete "/signout", to: "sessions#destroy"
+
   # rides
   post "/rides/new", to: "rides#new"
 
