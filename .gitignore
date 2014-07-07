@@ -19,7 +19,3 @@ db/development.sqlite3
 db/.DS_Store
 app/models/.DS_Store
 app/.DS_Store
-
-bin/rails
-bin/rake
-bin/spring
