@@ -10,15 +10,15 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def login
+  def signin
     @user = User.new
     @users = User.all
   end
 
-  def login_user
+  def login
     @user = User.find(params[:user][:id])
     if @user
-      redirect_to "/users/#{@user.id}"
+      redirect_to user_path(@user)
     else
       redirect_to "/"
     end
@@ -65,7 +65,8 @@ class UsersController < ApplicationController
         :height,
         :tickets,
         :happiness,
-        :nausea
+        :nausea,
+        :admin
       )
   end
 end

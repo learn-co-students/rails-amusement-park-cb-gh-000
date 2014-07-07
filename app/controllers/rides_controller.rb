@@ -9,13 +9,13 @@ class RidesController < ApplicationController
     redirect_to user_path(@ride.user, :message => @message)
   end
 
-  private
+  # private
 
-    def attraction_params
-      params.require(:ride).permit( 
-        :user_id,
-        :attraction_id,
-      )
-    end
+  #   def ride_params
+  #     params.require(:ride).permit( 
+  #       :user_id,
+  #       :attraction_id,
+  #     )
+  #   end
 
 end
