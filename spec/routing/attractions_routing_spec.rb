@@ -32,11 +32,11 @@ RSpec.describe AttractionsController, :type => :routing do
     end
 
     it "nested in customers, routes to #index" do
-      expect(:get => "/customers/1/attractions").to route_to("attractions#index")
+      expect(:get => "/customers/1/attractions").to route_to("attractions#index", :customer_id => "1")
     end
 
     it "nested in customers, routes to #show" do
-      expect(:get => "/customers/1/attractions/1").to route_to("attractions#show", :id => "1")
+      expect(:get => "/customers/1/attractions/1").to route_to("attractions#show",  :customer_id => "1", :id => "1")
     end
 
   end
