@@ -1,14 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe "customers/edit", :type => :view do
+RSpec.describe "users/edit", :type => :view do
   before(:each) do
-    @customer = assign(:customer, Customer.create!())
+    @user = assign(:user, User.create!())
   end
 
-  it "renders the edit customer form" do
+  it "renders the edit user form" do
     render
 
-    assert_select "form[action=?][method=?]", customer_path(@customer), "post" do
+    assert_select "form[action=?][method=?]", user_path(@user), "post" do
     end
   end
 end

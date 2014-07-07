@@ -8,15 +8,15 @@
 
 <div class="center">
   <div class="pic">
-    <img src="http://<%= @customer.name.gsub(" ", "") %>.jpg.to/" height="250">
+    <img src="http://<%= @user.name.gsub(" ", "") %>.jpg.to/" height="250">
   </div>
 
   <div class="info">
-    <p><strong>Name:</strong> <%= @customer.name %></p>
-    <p><strong>Tickets:</strong> <%= @customer.tickets %></p>
-    <p><strong>Mood:</strong>  <%= @customer.mood %></p>
-    <p><strong>Height:</strong> <%= @customer.height %> inches</p>
-    <%= link_to 'Edit', edit_customer_path(@customer) %> |
-    <a href="/customers/<%= @customer.id %>/attractions">Go on a ride!</a>
+    <p><strong>Name:</strong> <%= @user.name %></p>
+    <p><strong>Tickets:</strong> <%= @user.tickets %></p>
+    <p><strong>Mood:</strong>  <%= @user.mood %></p>
+    <p><strong>Height:</strong> <%= @user.height %> inches</p>
+    <%= link_to 'Edit', edit_user_path(@user) %> |
+    <a href="/users/<%= @user.id %>/attractions">Go on a ride!</a>
   </div>
 </div>

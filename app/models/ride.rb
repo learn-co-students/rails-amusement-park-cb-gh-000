@@ -1,5 +1,5 @@
 class Ride < ActiveRecord::Base
-  belongs_to :customer
+  belongs_to :user
   belongs_to :attraction
 
   def take_ride
@@ -17,20 +17,20 @@ class Ride < ActiveRecord::Base
 
   def meet_requirements
     enough_tickets, tall_enough = false
-    if self.customer.tickets >= self.attraction.tickets
+    if self.user.tickets >= self.attraction.tickets
       enough_tickets = true
     end
-    if self.customer.height >= self.attraction.min_height
+    if self.user.height >= self.attraction.min_height
       tall_enough = true 
     end
     return [enough_tickets, tall_enough]
   end
 
   def start_ride
-    new_happiness = self.customer.happiness + self.attraction.happiness_rating
-    new_nausea = self.customer.nausea + self.attraction.nausea_rating
-    new_tickets =  self.customer.tickets - self.attraction.tickets
-    self.customer.update(
+    new_happiness = self.user.happiness + self.attraction.happiness_rating
+    new_nausea = self.user.nausea + self.attraction.nausea_rating
+    new_tickets =  self.user.tickets - self.attraction.tickets
+    self.user.update(
       :happiness => new_happiness,
       :nausea => new_nausea,
       :tickets => new_tickets

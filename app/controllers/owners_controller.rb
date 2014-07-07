@@ -1,14 +1,14 @@
-class OwnersController < ApplicationController
-  before_action :set_owner, only: [:show, :edit, :update, :destroy]
+class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def login
-    @owner = Owner.new
+    @user = User.new
   end
 
   def login_user
-    @owner = Owner.find(owner_params[:id])
-    if @owner
-      redirect_to "/owners/#{@owner.id}"
+    @user = User.find(user_params[:id])
+    if @user
+      redirect_to "/users/#{@user.id}"
     else
       redirect_to "/"
     end
@@ -18,11 +18,11 @@ class OwnersController < ApplicationController
   end
 
   private
-    def set_owner
-      @owner = Owner.find(params[:id])
+    def set_user
+      @user = User.find(params[:id])
     end
 
-    def owner_params
-      params.require(:owner).permit(:name, :id)
+    def user_params
+      params.require(:user).permit(:name, :id)
     end
 end

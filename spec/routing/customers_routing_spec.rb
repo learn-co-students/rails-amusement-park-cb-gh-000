@@ -1,42 +1,42 @@
 require "rails_helper"
 
-RSpec.describe CustomersController, :type => :routing do
+RSpec.describe UsersController, :type => :routing do
   describe "routing" do
 
     it "routes to #index" do
-      expect(:get => "/customers").to route_to("customers#index")
+      expect(:get => "/users").to route_to("users#index")
     end
 
     it "routes to #new" do
-      expect(:get => "/customers/new").to route_to("customers#new")
+      expect(:get => "/users/new").to route_to("users#new")
     end
 
     it "routes to #show" do
-      expect(:get => "/customers/1").to route_to("customers#show", :id => "1")
+      expect(:get => "/users/1").to route_to("users#show", :id => "1")
     end
 
     it "routes to #edit" do
-      expect(:get => "/customers/1/edit").to route_to("customers#edit", :id => "1")
+      expect(:get => "/users/1/edit").to route_to("users#edit", :id => "1")
     end
 
     it "routes to #create" do
-      expect(:post => "/customers").to route_to("customers#create")
+      expect(:post => "/users").to route_to("users#create")
     end
 
     it "routes to #update" do
-      expect(:put => "/customers/1").to route_to("customers#update", :id => "1")
+      expect(:put => "/users/1").to route_to("users#update", :id => "1")
     end
 
     it "routes to #destroy" do
-      expect(:delete => "/customers/1").to route_to("customers#destroy", :id => "1")
+      expect(:delete => "/users/1").to route_to("users#destroy", :id => "1")
     end
 
     it "routes to #login" do
-      expect(:get => "/customers/login").to route_to("customers#login")
+      expect(:get => "/users/login").to route_to("users#login")
     end
 
     it "routes to #login_user" do
-      expect(:post => "/customers/login_user").to route_to("customers#login_user")
+      expect(:post => "/users/login_user").to route_to("users#login_user")
     end
 
   end

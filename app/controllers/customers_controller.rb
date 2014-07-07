@@ -1,5 +1,5 @@
-class CustomersController < ApplicationController
-  before_action :set_customer, only: [:show, :edit, :update, :destroy]
+class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
   
   def show
     @message = params[:message] if params[:message]
@@ -7,28 +7,28 @@ class CustomersController < ApplicationController
   end
 
   def new
-    @customer = Customer.new
+    @user = User.new
   end
 
   def login
-    @customer = Customer.new
-    @customers = Customer.all
+    @user = User.new
+    @users = User.all
   end
 
   def login_user
-    @customer = Customer.find(params[:customer][:id])
-    if @customer
-      redirect_to "/customers/#{@customer.id}"
+    @user = User.find(params[:user][:id])
+    if @user
+      redirect_to "/users/#{@user.id}"
     else
       redirect_to "/"
     end
   end
 
   def create
-    @customer = Customer.new(customer_params)
+    @user = User.new(user_params)
     respond_to do |format|
-      if @customer.save
-        format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
+      if @user.save
+        format.html { redirect_to @user, notice: 'User was successfully created.' }
       else
         format.html { render :new }
        end
@@ -37,8 +37,8 @@ class CustomersController < ApplicationController
 
   def update
     respond_to do |format|
-      if @customer.update(customer_params)
-        format.html { redirect_to @customer, notice: 'Customer was successfully updated.' }
+      if @user.update(user_params)
+        format.html { redirect_to @user, notice: 'User was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -46,21 +46,21 @@ class CustomersController < ApplicationController
   end
 
   def destroy
-    @customer.destroy
+    @user.destroy
     respond_to do |format|
-      format.html { redirect_to customers_url, notice: 'Customer was successfully destroyed.' }
+      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_customer
-      @customer = Customer.find(params[:id])
+    def set_user
+      @user = User.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def customer_params
-      params.require(:customer).permit( 
+    def user_params
+      params.require(:user).permit( 
         :name,
         :height,
         :tickets,

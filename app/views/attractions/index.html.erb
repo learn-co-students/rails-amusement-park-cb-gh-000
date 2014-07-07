@@ -19,8 +19,8 @@
         <td><img src="http://<%= attraction.name.gsub(" ", "") %>.jpg.to/" width="100"></td>
         <td><%= attraction.name %></td>
         <td><%= attraction.tickets %></td>
-        <% if @customer %>
-          <td><%= link_to 'Show', customer_attraction_path(@customer, attraction) %></td>
+        <% if @user %>
+          <td><%= link_to 'Show', user_attraction_path(@user, attraction) %></td>
         <% else %>
           <td><%= link_to 'Show', attraction_path(attraction) %></td>
         <% end %>
@@ -30,9 +30,9 @@
 </table>
 <br>
 
-<% if @customer %>
+<% if @user %>
   <p>
-    <%= link_to "Back to profile", customer_path(@customer), {:class => "btn btn-primary"} %>
+    <%= link_to "Back to profile", user_path(@user), {:class => "btn btn-primary"} %>
   </p>
 <% else %>
   <p><%= link_to 'New Attraction', new_attraction_path %></p>

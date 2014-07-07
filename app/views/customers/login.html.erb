@@ -1,7 +1,7 @@
-<%= form_for @customer, url: "/customers/login_user" do |f| %>
+<%= form_for @user, url: "/users/login_user" do |f| %>
 
   <div class="field"><%= f.label :name, "Select your name" %><br>
-    <%= f.collection_select(:id, Customer.all, :id, :name) %>
+    <%= f.collection_select(:id, User.all, :id, :name) %>
   </div>
 
   <div class="actions">
