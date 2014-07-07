@@ -3,20 +3,15 @@ class OwnersController < ApplicationController
 
   def login
     @owner = Owner.new
-    @owners = Owner.all
   end
 
   def login_user
     @owner = Owner.find(owner_params[:id])
-    if @customer
-      redirect_to "/owner/#{@owner.id}"
+    if @owner
+      redirect_to "/owners/#{@owner.id}"
     else
       redirect_to "/"
     end
-  end
-
-  def index
-    @owners = Owner.all
   end
 
   def show

@@ -2,12 +2,20 @@ class AttractionsController < ApplicationController
   before_action :set_attraction, only: [:show, :edit, :update, :destroy]
 
   def index
-    @customer = Customer.find(params[:customer_id])
+    if params[:customer_id]
+      @customer = Customer.find(params[:customer_id])
+    elsif params[:owner_id]
+      @owner = Owner.find(params[:owner_id])
+    end
     @attractions = Attraction.all
   end
 
   def show
-    @customer = Customer.find(params[:customer_id])
+    if params[:customer_id]
+      @customer = Customer.find(params[:customer_id])
+    elsif params[:owner_id]
+      @owner = Owner.find(params[:owner_id])
+    end
     @ride = Ride.new
   end
 

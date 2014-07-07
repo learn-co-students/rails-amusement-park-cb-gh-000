@@ -21,14 +21,19 @@ DATA = {
     ["Roller Coaster", 1, 3, 4, 54],
     ["Swinging Ship", 2, 2, 2, 36],
     ["Go Karts", 1, 2, 3, 36],
-    ["Haunted House", 1, 1, 1, 30],
+    ["Haunted Mansion", 1, 1, 1, 30],
     ["Ferris Wheel", 1, 1, 2, 36],
     ["Teacups Ride", 3, 1, 1, 28]
+  ],
+  :owners => [
+    "Mary Elitch Long",
+    "John Elitch"
   ]
 }
 
 def main
   make_customers
+  make_owners
   make_attractions_and_rides
 end
 
@@ -39,6 +44,12 @@ def make_customers
       new_customer.send(DATA[:customer_keys][i]+"=", attribute)
     end
     new_customer.save
+  end
+end
+
+def make_owners
+  DATA[:owners].each do |name|
+    Owner.create(:name => name)
   end
 end
 
