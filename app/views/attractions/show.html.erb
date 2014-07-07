@@ -14,7 +14,7 @@
     <p><strong>Happiness Rating:</strong> <%= @attraction.happiness_rating %></p>
     <% if @user.admin %>
       <%= link_to 'Edit Ride', [:edit, @attraction] %></p>
-    <% else !@user.admin %>
+    <% else %>
       <form action="/rides/new" method="post">
         <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
         <%= tag(:input, :type => "hidden", :name => :user_id, :value => @user.id) %>

@@ -2,20 +2,10 @@ class AttractionsController < ApplicationController
   before_action :set_attraction, only: [:show, :edit, :update, :destroy]
 
   def index
-    if params[:user_id]
-      @user = User.find(params[:user_id])
-    elsif params[:user_id]
-      @user = User.find(params[:user_id])
-    end
     @attractions = Attraction.all
   end
 
   def show
-    if params[:user_id]
-      @user = User.find(params[:user_id])
-    elsif params[:user_id]
-      @user = User.find(params[:user_id])
-    end
     @ride = Ride.new
   end
 
@@ -65,7 +55,7 @@ class AttractionsController < ApplicationController
         :min_height,
         :tickets,
         :happiness_rating,
-        :nausea_rating,
+        :nausea_rating
       )
     end
 

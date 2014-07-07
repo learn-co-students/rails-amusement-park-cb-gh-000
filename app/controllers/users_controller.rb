@@ -10,20 +10,6 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def signin
-    @user = User.new
-    @users = User.all
-  end
-
-  def login
-    @user = User.find(params[:user][:id])
-    if @user
-      redirect_to user_path(@user)
-    else
-      redirect_to "/"
-    end
-  end
-
   def create
     @user = User.new(user_params)
     respond_to do |format|
@@ -42,13 +28,6 @@ class UsersController < ApplicationController
       else
         format.html { render :edit }
       end
-    end
-  end
-
-  def destroy
-    @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
     end
   end
 
