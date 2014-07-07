@@ -31,13 +31,5 @@ RSpec.describe AttractionsController, :type => :routing do
       expect(:delete => "/attractions/1").to route_to("attractions#destroy", :id => "1")
     end
 
-    it "nested in users, routes to #index" do
-      expect(:get => "/users/1/attractions").to route_to("attractions#index", :user_id => "1")
-    end
-
-    it "nested in users, routes to #show" do
-      expect(:get => "/users/1/attractions/1").to route_to("attractions#show",  :user_id => "1", :id => "1")
-    end
-
   end
 end
