@@ -1,15 +1,15 @@
 ---
-tags: WIP, rails, form_for, 
+tags: WIP, rails, form_for, generators, sessions, intermediate
 language: ruby
 resources: 0
 ---
 
-# Amusement Park
+# Rails Amusement Park
 
 ## Objectives
 
-Get comfortable with nesting routes, using form helpers, and having models interact with eachother.
-    
-## License
+Get comfortable with using form helpers, having models interact with each other, and building out a simple sessions system.
 
-My Spiffy App is MIT Licensed. See LICENSE for details.
+## Instructions
+
+Get the tests to pass.
