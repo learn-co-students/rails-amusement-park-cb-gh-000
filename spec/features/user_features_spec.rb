@@ -204,4 +204,18 @@ describe 'Feature Test: Admin Flow', :type => :feature do
     expect(page).to have_content("New Attraction")
   end
 
+  it 'allows admins to add a ride' do
+    click_link('See rides')
+    click_link("New Attraction")
+    expect(current_path).to eq('/attractions/new')
+    fill_in("attraction[name]", :with => "Haunted Mansion")
+    fill_in("attraction[min_height]", :with => "32")
+    fill_in("attraction[happiness_rating]", :with => "2")
+    fill_in("attraction[nausea_rating]", :with => "1")
+    fill_in("attraction[tickets]", :with => "4")
+    click_button('Create Attraction')
+    expect(current_path).to eq("/attractions/4")
+    expect(page).to have_content("Haunted Mansion")
+  end
+
 end
