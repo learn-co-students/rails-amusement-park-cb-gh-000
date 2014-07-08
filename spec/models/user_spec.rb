@@ -29,6 +29,16 @@ RSpec.describe User, :type => :model do
     expect(@user).to be_valid
   end
 
+  it "is valid with an admin boolean" do
+    @walt = User.create(:name => "Walt Disney", :admin => true)
+    expect(@walt).to be_valid
+  end
+
+  it "is has an admin boolean" do
+    @walt = User.create(:name => "Walt Disney", :admin => true)
+    expect(@walt.admin).to eq(true)
+  end
+
   it "defaults to admin => false" do
     expect(@user.admin).to eq(false)
   end
