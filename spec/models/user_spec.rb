@@ -29,6 +29,10 @@ RSpec.describe User, :type => :model do
     expect(@user).to be_valid
   end
 
+  it "defaults to admin => false" do
+    expect(@user.admin).to eq(false)
+  end
+
   it "has many rides" do
     first_ride = Ride.create(:user_id => @user.id, :attraction_id => @rollercoaster.id)
     second_ride = Ride.create(:user_id => @user.id, :attraction_id => @ferriswheel.id)
@@ -41,7 +45,6 @@ RSpec.describe User, :type => :model do
     expect(@user.attractions.first).to eq(@rollercoaster)
     expect(@user.attractions.last).to eq(@ferriswheel)
   end
-
 
   it "has a method 'mood' that returns 'sad' when the user is more nauseous than happy" do
     expect(@user.mood).to eq("sad")
