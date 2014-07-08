@@ -1,22 +1,79 @@
 require_relative "../rails_helper.rb"
 
 describe 'Feature Test: User Signup', :type => :feature do
-  include LoginHelper
+
   it 'successfully signs up as non-admin' do
-    # see app/spec/support/login_helper.rb
     user_signup
   end
+
+  it "on sign up, successfully adds a session hash" do
+    user_signup
+    expect(session[:user_id]).to_not be_nil
+  end
+
   it 'successfully logs in as non-admin' do
-    # see app/spec/support/login_helper.rb
     user_login
   end
-  it 'successfully signs up as non-admin' do
-    # see app/spec/support/login_helper.rb
+
+  it "on log in, successfully adds a session hash" do
+    user_login
+    expect(session[:user_id]).to_not be_nil
+  end
+
+  it 'successfully signs up as admin' do
     admin_signup
   end
-  it 'successfully logs in as non-admin' do
-    # see app/spec/support/login_helper.rb
+
+  it "on sign up for admin, successfully adds a session hash" do 
+    admin_signup
+    expect(session[:user_id]).to_not be_nil
+  end
+
+  it 'successfully logs in as admin' do
     admin_login
+  end
+
+  it "on log in, successfully adds a session hash to admins" do
+    admin_login
+    expect(session[:user_id]).to_not be_nil
+  end
+
+end
+
+describe 'Feature Test: User Signout', :type => :feature do
+
+  it 'has a link to log out from the users/show page' do
+    user_signup
+    expect(page).to have_content("Log Out")
+  end
+
+  it 'redirects to home page after logging out' do
+    user_signup
+    click_link("Log Out")
+    expect(current_path).to eq('/')
+  end
+
+  it "successfully destroys session hash when 'Log Out' is clicked" do
+    user_signup
+    click_link("Log Out")
+    expect(session[:user_id]).to eq(nil)
+  end
+
+  it 'has a link to log out from the users/show page when user is an admin' do
+    admin_signup
+    expect(page).to have_content("Log Out")
+  end
+
+  it 'redirects to home page after admin logs out when user is an admin' do
+    admin_signup
+    click_link("Log Out")
+    expect(current_path).to eq('/')
+  end
+
+  it "successfully destroys session hash when 'Log Out' is clicked as admin" do
+    admin_signup
+    click_link("Log Out")
+    expect(session[:user_id]).to eq(nil)
   end
 end
 
