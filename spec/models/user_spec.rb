@@ -6,7 +6,8 @@ RSpec.describe User, :type => :model do
       :name => "Mindy",
       :nausea => 5,
       :happiness => 3,
-      :tickets => 4
+      :tickets => 4,
+      :height => 34
     )
     @rollercoaster = Attraction.create(
       :name => "Roller Coaster",
@@ -24,7 +25,7 @@ RSpec.describe User, :type => :model do
     )
   end
 
-  it "is valid with a name, happiness, nausea, and tickets" do
+  it "is valid with a name, happiness, nausea, height, and tickets" do
     expect(@user).to be_valid
   end
 
