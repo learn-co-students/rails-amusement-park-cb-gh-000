@@ -8,7 +8,7 @@ describe 'Feature Test: User Signup', :type => :feature do
 
   it "on sign up, successfully adds a session hash" do
     user_signup
-    expect(session[:user_id]).to_not be_nil
+    expect(page.get_rack_session[:user_id]).to_not be_nil
   end
 
   it 'successfully logs in as non-admin' do
@@ -17,7 +17,7 @@ describe 'Feature Test: User Signup', :type => :feature do
 
   it "on log in, successfully adds a session hash" do
     user_login
-    expect(session[:user_id]).to_not be_nil
+    expect(page.get_rack_session[:user_id]).to_not be_nil
   end
 
   it 'successfully signs up as admin' do
@@ -26,7 +26,7 @@ describe 'Feature Test: User Signup', :type => :feature do
 
   it "on sign up for admin, successfully adds a session hash" do 
     admin_signup
-    expect(session[:user_id]).to_not be_nil
+    expect(page.get_rack_session[:user_id]).to_not be_nil
   end
 
   it 'successfully logs in as admin' do
@@ -35,7 +35,7 @@ describe 'Feature Test: User Signup', :type => :feature do
 
   it "on log in, successfully adds a session hash to admins" do
     admin_login
-    expect(session[:user_id]).to_not be_nil
+    expect(page.get_rack_session[:user_id]).to_not be_nil
   end
 
 end
@@ -56,7 +56,7 @@ describe 'Feature Test: User Signout', :type => :feature do
   it "successfully destroys session hash when 'Log Out' is clicked" do
     user_signup
     click_link("Log Out")
-    expect(session[:user_id]).to eq(nil)
+    expect(page.get_rack_session[:user_id]).to eq(nil)
   end
 
   it 'has a link to log out from the users/show page when user is an admin' do
@@ -73,7 +73,7 @@ describe 'Feature Test: User Signout', :type => :feature do
   it "successfully destroys session hash when 'Log Out' is clicked as admin" do
     admin_signup
     click_link("Log Out")
-    expect(session[:user_id]).to eq(nil)
+    expect(page.get_rack_session[:user_id]).to eq(nil)
   end
 end
 
