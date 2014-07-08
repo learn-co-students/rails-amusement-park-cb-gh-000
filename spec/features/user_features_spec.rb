@@ -199,12 +199,12 @@ describe 'Feature Test: Admin Flow', :type => :feature do
     expect(page).to have_content("#{@ferriswheel.name}")
   end
 
-  it 'allows admins to add a ride from the index page' do
+  it 'allows admins to add an attraction from the index page' do
     click_link('See rides')
     expect(page).to have_content("New Attraction")
   end
 
-  it 'allows admins to add a ride' do
+  it 'allows admins to add an attraction' do
     click_link('See rides')
     click_link("New Attraction")
     expect(current_path).to eq('/attractions/new')
@@ -216,6 +216,22 @@ describe 'Feature Test: Admin Flow', :type => :feature do
     click_button('Create Attraction')
     expect(current_path).to eq("/attractions/4")
     expect(page).to have_content("Haunted Mansion")
+  end
+
+  it "has link to attraction/show from attraction/index page for admins" do
+    click_link('See rides')
+    expect(page).to have_content("Show #{@ferriswheel.name}")
+  end
+
+  it "does not suggest that admins go on a ride" do
+    click_link('See rides')
+    expect(page).to_not have_content("Go on #{@ferriswheel.name}")
+  end
+
+  it "links to attractions/show page from attractions/index" do
+    click_link('See rides')
+    click_link("Show #{@rollercoaster.name}")
+    expect(current_path).to eq("/attractions/1")
   end
 
 end
