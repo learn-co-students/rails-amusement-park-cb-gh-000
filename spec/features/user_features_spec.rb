@@ -71,4 +71,21 @@ describe 'go on ride', :type => :feature do
     click_link("Go on #{@ferriswheel.name}")
     expect(current_path).to eq("/attractions/2")
   end
+
+  it "has a button from the attraction show page to go on the ride" do
+    user_signup
+    click_link('See rides')
+    click_link("Go on #{@ferriswheel.name}")
+    expect(current_path).to eq("/attractions/2")
+    expect(page).to have_button("Go on this ride")
+  end
+
+  it "links from the attraction show page to go on the ride" do
+    user_signup
+    click_link('See rides')
+    click_link("Go on Ferris Wheel")
+    click_button("Go on this ride")
+    expect(current_path).to eq("/users/1")
+  end
+
 end
