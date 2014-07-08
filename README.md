@@ -23,11 +23,11 @@ You're going to be building an amusement park. There will be users, attractions,
 
 ## Resources
 
-*[Rails Generators](http://guides.rubyonrails.org/generators.html)
-*[Form Helpers](http://api.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html)
-*[Form Helpers Guide](http://guides.rubyonrails.org/form_helpers.html)
-*[Collection Select](http://stackoverflow.com/questions/8907867/can-someone-explain-collection-select-to-me-in-clear-simple-terms)
-*Rails 4 Way
-  *[Chapter 11: Sections on Form Helpers and Form Tags](http://beta-library.herokuapp.com/books/the-rails-4-way#page=356)
-  *[Chapter 13: Session Management](http://beta-library.herokuapp.com/books/the-rails-4-way#page=445)
-*[Sessions in Rails](http://guides.rubyonrails.org/security.html#sessions)
+* [Rails Generators](http://guides.rubyonrails.org/generators.html)
+* [Form Helpers](http://api.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html)
+* [Form Helpers Guide](http://guides.rubyonrails.org/form_helpers.html)
+* [Collection Select](http://stackoverflow.com/questions/8907867/can-someone-explain-collection-select-to-me-in-clear-simple-terms)
+* Rails 4 Way
+  * [Chapter 11: Sections on Form Helpers and Form Tags](http://beta-library.herokuapp.com/books/the-rails-4-way#page=356)
+  * [Chapter 13: Session Management](http://beta-library.herokuapp.com/books/the-rails-4-way#page=445)
+* [Sessions in Rails](http://guides.rubyonrails.org/security.html#sessions)
