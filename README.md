@@ -13,7 +13,7 @@ resources: 7
 
 Get comfortable with using form helpers, having models interact with each other, and building out a simple sessions system.
 
-You're going to be building an amusement park. There will be users, attractions, and users can take rides on attractions. 
+You're going to be building an amusement park. There will be users, attractions, and users can take rides on attractions.
 
 ## Instructions
 
