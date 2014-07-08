@@ -57,6 +57,14 @@ describe 'Feature Test: Go on a Ride', :type => :feature do
     expect(current_path).to eq('/attractions')
   end
 
+  it 'prevents users from editing/deleting/adding rides on the index page' do
+    click_link('See rides')
+    expect(current_path).to eq('/attractions')
+    expect(page).to_not have_content("edit")
+    expect(page).to_not have_content("delete")
+    expect(page).to_not have_content("new attraction")
+  end
+
   it 'has titles of the rides on the attractions index page' do
     click_link('See rides')
     expect(page).to have_content("#{@ferriswheel.name}")
@@ -73,6 +81,13 @@ describe 'Feature Test: Go on a Ride', :type => :feature do
     click_link('See rides')
     click_link("Go on #{@ferriswheel.name}")
     expect(current_path).to eq("/attractions/2")
+  end
+
+  it 'prevents users from editing/deleting a ride on the show page' do
+    click_link('See rides')
+    click_link("Go on #{@ferriswheel.name}")
+    expect(page).to_not have_content("edit")
+    expect(page).to_not have_content("delete")
   end
 
   it "has a button from the attraction show page to go on the ride" do
@@ -140,4 +155,53 @@ describe 'Feature Test: Go on a Ride', :type => :feature do
     expect(page).to have_content("You do not have enough tickets the #{@rollercoaster.name}")
     expect(page).to have_content("Tickets: 1")
   end
+end
+
+describe 'Feature Test: Admin Flow', :type => :feature do
+
+  before :each do 
+    @rollercoaster = Attraction.create(
+      :name => "Roller Coaster",
+      :tickets => 5,
+      :nausea_rating => 2,
+      :happiness_rating => 4,
+      :min_height => 32
+    )
+    @ferriswheel = Attraction.create(
+      :name => "Ferris Wheel",
+      :tickets => 2,
+      :nausea_rating => 2,
+      :happiness_rating => 1,
+      :min_height => 28
+    )
+    @teacups = Attraction.create(
+      :name => "Teacups",
+      :tickets => 1,
+      :nausea_rating => 5,
+      :happiness_rating => 1,
+      :min_height => 28
+    )
+    admin_signup
+  end
+
+  it 'displays admin when logged in as an admin on user show page' do
+    expect(page).to have_content("ADMIN")
+  end
+
+  it 'links to the attractions from the users show page when logged in as a admin' do
+    expect(page).to have_content("See rides")
+  end
+
+  it 'has a link from the user show page to the attractions index page when in admin mode' do
+    click_link('See rides')
+    expect(page).to have_content("#{@teacups.name}")
+    expect(page).to have_content("#{@rollercoaster.name}")
+    expect(page).to have_content("#{@ferriswheel.name}")
+  end
+
+  it 'allows admins to add a ride from the index page' do
+    click_link('See rides')
+    expect(page).to have_content("New Attraction")
+  end
+
 end
