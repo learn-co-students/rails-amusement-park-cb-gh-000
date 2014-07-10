@@ -1,8 +1,8 @@
 ---
-tags: rails, form_for, generators, sessions, full application
+tags: rails, form_for, generators, sessions, full application, sessions
 language: ruby
 unit: rails
-module: rails forms and generators
+module: Building complete apps
 level: intermediate
 resources: 7
 ---
