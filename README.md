@@ -32,3 +32,4 @@ You're going to be building an amusement park. There will be users, attractions,
   * [Chapter 11: Sections on Form Helpers and Form Tags](http://beta-library.herokuapp.com/books/the-rails-4-way#page=356)
   * [Chapter 13: Session Management](http://beta-library.herokuapp.com/books/the-rails-4-way#page=445)
 * [Sessions in Rails](http://guides.rubyonrails.org/security.html#sessions)
+
