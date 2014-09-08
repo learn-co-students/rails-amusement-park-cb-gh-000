@@ -1,3 +1,3 @@
 class CreateRides < ActiveRecord::Migration
-  raise "Write your migrations here"
+  # Write your migrations here
 end
