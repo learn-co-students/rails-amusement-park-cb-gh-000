@@ -17,7 +17,7 @@ You're going to be building an amusement park. There will be users, attractions,
 
 ## Instructions
 
-**This lab does not cover validations so please do not use them. If you do, you're tests will break. Thanks**
+**This lab does not cover validations so please do not use them. If you do, you're tests will break.**
 
 * Check out [The Demo](http://amusement-park.herokuapp.com/) to see where this lab is headed.
 * <em>Before anything</em>, note that when you generate models, controllers, etc, be sure to include this option, so that it skips tests (which are already included in the lab): `--no-test-framework`
