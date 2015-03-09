@@ -7,7 +7,7 @@ class CreateAttractions < ActiveRecord::Migration
       t.integer :happiness_rating
       t.integer :min_height
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

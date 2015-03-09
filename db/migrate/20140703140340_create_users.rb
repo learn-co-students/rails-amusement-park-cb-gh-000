@@ -8,7 +8,7 @@ class CreateUsers < ActiveRecord::Migration
       t.integer :nausea
       t.boolean :admin, :default => false
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end
