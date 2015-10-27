@@ -16,7 +16,7 @@ RSpec.describe Ride, :type => :model do
       :tickets => 4,
       :height => 34
     )
-    @ride = Ride.create(user_id: @attraction.id, attraction_id: @user.id)
+    @ride = Ride.create(user_id: @user.id, attraction_id: @attraction.id)
   end
 
   it "is valid with a user_id and a attraction_id" do
