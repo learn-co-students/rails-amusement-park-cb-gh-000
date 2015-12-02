@@ -27,3 +27,5 @@ You're going to be building an amusement park. There will be users, attractions,
 * Rails 4 Way
 
 * [Sessions in Rails](http://guides.rubyonrails.org/security.html#sessions)
+
+<a href='https://learn.co/lessons/rails-amusement-park' data-visibility='hidden'>View this lesson on Learn.co</a>
