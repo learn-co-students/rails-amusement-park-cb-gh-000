@@ -30,4 +30,4 @@ Building this amusement park will require the combination of a lot of the ideas 
 
 * [Sessions in Rails](http://guides.rubyonrails.org/security.html#sessions)
 
-<a href='https://learn.co/lessons/rails-amusement-park' data-visibility='hidden'>View this lesson on Learn.co</a>
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/rails-amusement-park' title='Rails Amusement Park'>Rails Amusement Park</a> on Learn.co and start learning to code for free.</p>
