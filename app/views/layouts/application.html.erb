@@ -23,7 +23,11 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-           <!--  nav here -->
+            <% if logged_in? %>
+              <li style="color: white;">Hi! <%= current_user.email %></li>
+            <% else %>
+            <li style="color: white;">NO ONE IS LOGGED IN</li>
+            <% end %>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
