@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  
+
   def show
     @message = params[:message] if params[:message]
     @message ||= false
@@ -18,7 +18,7 @@ class UsersController < ApplicationController
         format.html { redirect_to user_path(@user), notice: "Welcome to the theme park!" }
       else
         format.html { render :new }
-       end
+      end
     end
   end
 
@@ -43,13 +43,14 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit( 
+      params.require(:user).permit(
         :name,
+        :password,
         :height,
         :tickets,
         :happiness,
         :nausea,
         :admin
       )
-  end
+    end
 end
