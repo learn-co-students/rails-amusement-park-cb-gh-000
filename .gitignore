@@ -15,8 +15,4 @@
 /log/*.log
 /tmp
 
-db/development.sqlite3
-db/test.sqlite3
-db/.DS_Store
-app/models/.DS_Store
-app/.DS_Store
+.DS_Store

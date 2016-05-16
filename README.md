@@ -8,14 +8,13 @@ You're going to be building an amusement park. There will be users, attractions,
 
 ## Instructions
 
-Building this amusement park will require the combination of a lot of the ideas introduced over the last few units.  The instructions are purposely limited.  Use the specs and the demo to drive what you build.
-
-**This lab does not cover validations so please do not use them. If you do, your tests will break.**
 
 * Check out [The Demo](http://amusement-park.herokuapp.com/) to see where this lab is headed.
 * <em>Before anything</em>, note that when you generate models, controllers, etc, be sure to include this option, so that it skips tests (which are already included in the lab): `--no-test-framework`
 * This is a test driven lab, check out the model tests and get those to pass before moving onto the feature specs.
 * Remember, if you use scaffolds or generators do <em>not</em> overwrite the model specs that are included in this lab. Always enter `n` or `no` when prompted to overwrite the model specs for this lab.
+
+**A hint about requiring a password**: ActiveRecord comes with a handy `has_secure_password` attribute that you can set on a model. It requires that you enable the `bcrypt` gem and that you add a `password_digest` column to your model. You can read more about `has_secure_password` [here](http://api.rubyonrails.org/classes/ActiveModel/SecurePassword/ClassMethods.html).
 
 ## Resources
 * [Rails Generators](http://guides.rubyonrails.org/generators.html)
@@ -30,4 +29,7 @@ Building this amusement park will require the combination of a lot of the ideas 
 
 * [Sessions in Rails](http://guides.rubyonrails.org/security.html#sessions)
 
-<p data-visibility='hidden'>View <a href='https://learn.co/lessons/rails-amusement-park' title='Rails Amusement Park'>Rails Amusement Park</a> on Learn.co and start learning to code for free.</p>
+* [`has_secure_password`](http://api.rubyonrails.org/classes/ActiveModel/SecurePassword/ClassMethods.html)
+
+
+<a href='https://learn.co/lessons/rails-amusement-park' data-visibility='hidden'>View this lesson on Learn.co</a>
