@@ -20,6 +20,20 @@ describe 'Feature Test: User Signup', :type => :feature do
     expect(page.get_rack_session_key('user_id')).to_not be_nil
   end
 
+  it 'prevents user from viewing user show page and redirects to home page if not logged in' do
+    @mindy = User.create(
+      name: "Mindy",
+      password: "password",
+      happiness: 3,
+      nausea: 2,
+      tickets: 10,
+      height: 50
+    )
+    visit '/users/1'
+    expect(current_path).to eq('/')
+    expect(page).to have_content("Sign Up")
+  end
+
   it 'successfully signs up as admin' do
     admin_signup
   end
@@ -102,13 +116,6 @@ describe 'Feature Test: Go on a Ride', :type => :feature do
       :min_height => 28
     )
     user_signup
-  end
-
-  it 'prevents user from viewing ride page and redirects to home page if user is not logged in' do
-    click_link("Log Out")
-    visit '/ride/1'
-    expect(current_path).to eq('/')
-    expect(page).to have_content("Sign Up")
   end
 
   it 'has a link from the user show page to the attractions index page' do
