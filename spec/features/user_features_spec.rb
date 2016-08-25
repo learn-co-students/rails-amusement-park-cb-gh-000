@@ -3,37 +3,81 @@ require_relative "../rails_helper.rb"
 describe 'Feature Test: User Signup', :type => :feature do
 
   it 'successfully signs up as non-admin' do
+    visit_signup
+    expect(current_path).to eq('/users/new')
     user_signup
+    expect(current_path).to eq('/users/1')
+    expect(page).to have_content("Amy Poehler")
+    expect(page).to have_content("Mood")
+    expect(page).to have_content("happy")
+    expect(page).to have_content("15")
+    expect(page).to have_content("58")
   end
 
   it "on sign up, successfully adds a session hash" do
+    visit_signup
     user_signup
     expect(page.get_rack_session_key('user_id')).to_not be_nil
   end
 
   it 'successfully logs in as non-admin' do
+    visit_signin
+    expect(current_path).to eq('/signin')
     user_login
+    expect(current_path).to eq('/users/1')
+    expect(page).to have_content("Mindy")
+    expect(page).to have_content("Mood")
+    expect(page).to have_content("happy")
+    expect(page).to have_content("10")
+    expect(page).to have_content("50")
   end
 
   it "on log in, successfully adds a session hash" do
+    visit_signin
     user_login
     expect(page.get_rack_session_key('user_id')).to_not be_nil
   end
 
-  it 'successfully signs up as admin' do
-    admin_signup
+  it 'prevents user from viewing user show page and redirects to home page if not logged in' do
+    @mindy = User.create(
+      name: "Mindy",
+      password: "password",
+      happiness: 3,
+      nausea: 2,
+      tickets: 10,
+      height: 50
+    )
+    visit '/users/1'
+    expect(current_path).to eq('/')
+    expect(page).to have_content("Sign Up")
   end
 
-  it "on sign up for admin, successfully adds a session hash" do 
+  it 'successfully signs up as admin' do
+    visit_signup
+    expect(current_path).to eq('/users/new')
+    admin_signup
+    expect(current_path).to eq('/users/1')
+    expect(page).to have_content("Walt Disney")
+    expect(page).to have_content("ADMIN")
+  end
+
+  it "on sign up for admin, successfully adds a session hash" do
+    visit_signup
     admin_signup
     expect(page.get_rack_session_key('user_id')).to_not be_nil
   end
 
   it 'successfully logs in as admin' do
+    visit_signin
+    expect(current_path).to eq('/signin')
     admin_login
+    expect(current_path).to eq('/users/2')
+    expect(page).to have_content("Walt Disney")
+    expect(page).to have_content("ADMIN")
   end
 
   it "on log in, successfully adds a session hash to admins" do
+    visit_signin
     admin_login
     expect(page.get_rack_session_key('user_id')).to_not be_nil
   end
@@ -43,34 +87,40 @@ end
 describe 'Feature Test: User Signout', :type => :feature do
 
   it 'has a link to log out from the users/show page' do
+    visit_signup
     user_signup
     expect(page).to have_content("Log Out")
   end
 
   it 'redirects to home page after logging out' do
+    visit_signup
     user_signup
     click_link("Log Out")
     expect(current_path).to eq('/')
   end
 
   it "successfully destroys session hash when 'Log Out' is clicked" do
+    visit_signup
     user_signup
     click_link("Log Out")
     expect(page.get_rack_session).to_not include("user_id")
   end
 
   it 'has a link to log out from the users/show page when user is an admin' do
+    visit_signup
     admin_signup
     expect(page).to have_content("Log Out")
   end
 
   it 'redirects to home page after admin logs out when user is an admin' do
+    visit_signup
     admin_signup
     click_link("Log Out")
     expect(current_path).to eq('/')
   end
 
   it "successfully destroys session hash when 'Log Out' is clicked as admin" do
+    visit_signup
     admin_signup
     click_link("Log Out")
     expect(page.get_rack_session).to_not include("user_id")
@@ -79,7 +129,7 @@ end
 
 describe 'Feature Test: Go on a Ride', :type => :feature do
 
-  before :each do 
+  before :each do
     @rollercoaster = Attraction.create(
       :name => "Roller Coaster",
       :tickets => 5,
@@ -101,6 +151,7 @@ describe 'Feature Test: Go on a Ride', :type => :feature do
       :happiness_rating => 1,
       :min_height => 28
     )
+    visit_signup
     user_signup
   end
 
@@ -216,7 +267,7 @@ end
 
 describe 'Feature Test: Admin Flow', :type => :feature do
 
-  before :each do 
+  before :each do
     @rollercoaster = Attraction.create(
       :name => "Roller Coaster",
       :tickets => 5,
@@ -238,6 +289,7 @@ describe 'Feature Test: Admin Flow', :type => :feature do
       :happiness_rating => 1,
       :min_height => 28
     )
+    visit_signup
     admin_signup
   end
 
