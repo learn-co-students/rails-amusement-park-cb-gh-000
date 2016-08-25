@@ -1,9 +1,11 @@
 module LoginHelper
 
-  def user_signup
+  def visit_signup
     visit '/'
     click_link('Sign up')
-    expect(current_path).to eq('/users/new')
+  end
+
+  def user_signup
     fill_in("user[name]", :with => "Amy Poehler")
     fill_in("user[height]", :with => "58")
     fill_in("user[happiness]", :with => "3")
@@ -11,12 +13,11 @@ module LoginHelper
     fill_in("user[tickets]", :with => "15")
     fill_in("user[password]", :with => "password")
     click_button('Create User')
-    expect(current_path).to eq('/users/1')
-    expect(page).to have_content("Amy Poehler")
-    expect(page).to have_content("Mood")
-    expect(page).to have_content("happy")
-    expect(page).to have_content("15")
-    expect(page).to have_content("58")
+  end
+
+  def visit_signin
+    visit '/'
+    click_link('Sign in')
   end
 
   def user_login
@@ -28,31 +29,16 @@ module LoginHelper
       tickets: 10,
       height: 50
     )
-    visit '/'
-    click_link('Sign in')
-    expect(current_path).to eq('/signin')
     fill_in("user[name]", :with => "Mindy")
     fill_in("user[password]", :with => "password")
     click_button('Sign In')
-    expect(current_path).to eq('/users/1')
-    expect(page).to have_content("Mindy")
-    expect(page).to have_content("Mood")
-    expect(page).to have_content("happy")
-    expect(page).to have_content("10")
-    expect(page).to have_content("50")
   end
 
   def admin_signup
-    visit '/'
-    click_link('Sign up')
-    expect(current_path).to eq('/users/new')
     fill_in("user[name]", :with => "Walt Disney")
     fill_in("user[password]", :with => "password")
     find(:css, "#user_admin").set(true)
     click_button('Create User')
-    expect(current_path).to eq('/users/1')
-    expect(page).to have_content("Walt Disney")
-    expect(page).to have_content("ADMIN")
   end
 
   def admin_login
@@ -69,15 +55,9 @@ module LoginHelper
       password: "password",
       admin: true
     )
-    visit '/'
-    click_link('Sign in')
-    expect(current_path).to eq('/signin')
     fill_in("user[name]", :with => "Walt Disney")
     fill_in("user[password]", :with => "password")
     click_button('Sign In')
-    expect(current_path).to eq('/users/2')
-    expect(page).to have_content("Walt Disney")
-    expect(page).to have_content("ADMIN")
   end
 
 end
