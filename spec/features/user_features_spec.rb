@@ -205,35 +205,35 @@ describe 'Feature Test: Go on a Ride', :type => :feature do
     expect(page).to have_button("Go on this ride")
   end
 
-  it "clicking on 'Go on ride' redirects to user show page" do
+  it "clicking on 'Go on this ride' redirects to user show page" do
     click_link('See attractions')
     click_link("Go on #{@ferriswheel.name}")
     click_button("Go on this ride")
     expect(current_path).to eq("/users/1")
   end
 
-  it "clicking on 'Go on ride' updates the users ticket number" do
+  it "clicking on 'Go on this ride' updates the users ticket number" do
     click_link('See attractions')
     click_link("Go on #{@ferriswheel.name}")
     click_button("Go on this ride")
     expect(page).to have_content("Tickets: 13")
   end
 
-  it "clicking on 'Go on ride' updates the users mood" do
+  it "clicking on 'Go on this ride' updates the users mood" do
     click_link('See attractions')
     click_link("Go on #{@teacups.name}")
     click_button("Go on this ride")
     expect(page).to have_content("sad")
   end
 
-  it "when the user is tall enough and has enough tickets, clicking on 'Go on ride' displays a thank you message" do
+  it "when the user is tall enough and has enough tickets, clicking on 'Go on this ride' displays a thank you message" do
     click_link('See attractions')
     click_link("Go on #{@ferriswheel.name}")
     click_button("Go on this ride")
     expect(page).to have_content("Thanks for riding the #{@ferriswheel.name}!")
   end
 
-  it "when the user is too short, clicking on 'Go on ride' displays a sorry message" do
+  it "when the user is too short, clicking on 'Go on this ride' displays a sorry message" do
     @user = User.find_by(:name => "Amy Poehler")
     @user.update(:height => 10)
     click_link('See attractions')
@@ -243,24 +243,24 @@ describe 'Feature Test: Go on a Ride', :type => :feature do
     expect(page).to have_content("happy")
   end
 
-  it "when the user doesn't have enough tickets, clicking on 'Go on ride' displays a sorry message" do
+  it "when the user doesn't have enough tickets, clicking on 'Go on this ride' displays a sorry message" do
     @user = User.find_by(:name => "Amy Poehler")
     @user.update(:tickets => 1)
     click_link('See attractions')
     click_link("Go on #{@ferriswheel.name}")
     click_button("Go on this ride")
-    expect(page).to have_content("You do not have enough tickets the #{@ferriswheel.name}")
+    expect(page).to have_content("You do not have enough tickets to ride the #{@ferriswheel.name}")
     expect(page).to have_content("Tickets: 1")
   end
 
-  it "when the user is too short and doesn't have enough tickets, clicking on 'Go on ride' displays a detailed sorry message" do
+  it "when the user is too short and doesn't have enough tickets, clicking on 'Go on this ride' displays a detailed sorry message" do
     @user = User.find_by(:name => "Amy Poehler")
     @user.update(:tickets => 1, :height => 30)
     click_link('See attractions')
     click_link("Go on #{@rollercoaster.name}")
     click_button("Go on this ride")
     expect(page).to have_content("You are not tall enough to ride the #{@rollercoaster.name}")
-    expect(page).to have_content("You do not have enough tickets the #{@rollercoaster.name}")
+    expect(page).to have_content("You do not have enough tickets to ride the #{@rollercoaster.name}")
     expect(page).to have_content("Tickets: 1")
   end
 end
