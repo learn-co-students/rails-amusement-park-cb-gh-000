@@ -2,7 +2,7 @@ module LoginHelper
 
   def visit_signup
     visit '/'
-    click_link('Sign up')
+    click_link('Sign Up')
   end
 
   def user_signup
@@ -17,7 +17,7 @@ module LoginHelper
 
   def visit_signin
     visit '/'
-    click_link('Sign in')
+    click_link('Sign In')
   end
 
   def user_login
@@ -36,10 +36,6 @@ module LoginHelper
 
   def admin_signup
     fill_in("user[name]", :with => "Walt Disney")
-    fill_in("user[height]", :with => "58")
-    fill_in("user[happiness]", :with => "3")
-    fill_in("user[nausea]", :with => "2")
-    fill_in("user[tickets]", :with => "15")
     fill_in("user[password]", :with => "password")
     find(:css, "#user_admin").set(true)
     click_button('Create User')
@@ -57,9 +53,6 @@ module LoginHelper
     @walt = User.create(
       name: "Walt Disney",
       password: "password",
-      happiness: 3,
-      nausea: 2,
-      tickets: 10,
       admin: true
     )
     fill_in("user[name]", :with => "Walt Disney")
