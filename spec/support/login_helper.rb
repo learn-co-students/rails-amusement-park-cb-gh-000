@@ -2,7 +2,7 @@ module LoginHelper
 
   def visit_signup
     visit '/'
-    click_link('Sign Up')
+    click_link('Sign up')
   end
 
   def user_signup
@@ -17,7 +17,7 @@ module LoginHelper
 
   def visit_signin
     visit '/'
-    click_link('Sign In')
+    click_link('Sign in')
   end
 
   def user_login
@@ -55,14 +55,10 @@ module LoginHelper
       height: 50
     )
     @walt = User.create(
-        name: "Walt Disney",
-        password: "password",
-        happiness: 3,
-        nausea: 2,
-        tickets: 15,
-        height: 58,
-        admin: true
-      )
+      name: "Walt Disney",
+      password: "password",
+      admin: true
+    )
     fill_in("user[name]", :with => "Walt Disney")
     fill_in("user[password]", :with => "password")
     click_button('Sign In')

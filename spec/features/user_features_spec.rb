@@ -242,27 +242,6 @@ describe 'Feature Test: Go on a Ride', :type => :feature do
     expect(page).to have_content("You are not tall enough to ride the #{@teacups.name}")
     expect(page).to have_content("happy")
   end
-
-  it "when the user doesn't have enough tickets, clicking on 'Go on this ride' displays a sorry message" do
-    @user = User.find_by(:name => "Amy Poehler")
-    @user.update(:tickets => 1)
-    click_link('See attractions')
-    click_link("Go on #{@ferriswheel.name}")
-    click_button("Go on this ride")
-    expect(page).to have_content("You do not have enough tickets to ride the #{@ferriswheel.name}")
-    expect(page).to have_content("Tickets: 1")
-  end
-
-  it "when the user is too short and doesn't have enough tickets, clicking on 'Go on this ride' displays a detailed sorry message" do
-    @user = User.find_by(:name => "Amy Poehler")
-    @user.update(:tickets => 1, :height => 30)
-    click_link('See attractions')
-    click_link("Go on #{@rollercoaster.name}")
-    click_button("Go on this ride")
-    expect(page).to have_content("You are not tall enough to ride the #{@rollercoaster.name}")
-    expect(page).to have_content("You do not have enough tickets to ride the #{@rollercoaster.name}")
-    expect(page).to have_content("Tickets: 1")
-  end
 end
 
 describe 'Feature Test: Admin Flow', :type => :feature do
