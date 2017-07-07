@@ -25,8 +25,6 @@ You're going to be building an amusement park. There will be users, attractions,
 
 * [Collection Select](http://stackoverflow.com/questions/8907867/can-someone-explain-collection-select-to-me-in-clear-simple-terms)
 
-* Rails 4 Way
-
 * [Sessions in Rails](http://guides.rubyonrails.org/security.html#sessions)
 
 * [`has_secure_password`](http://api.rubyonrails.org/classes/ActiveModel/SecurePassword/ClassMethods.html)
