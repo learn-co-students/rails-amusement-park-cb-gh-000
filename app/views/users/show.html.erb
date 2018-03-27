@@ -1,0 +1,16 @@
+
+  <div class="center">
+    <div class="pic">
+      <img src="https://web.archive.org/web/20160213224704if_/http://8900-presscdn-0-84.pagely.netdna-cdn.com/wp-content/themes/beautycon/assets/img/avatar-grey.png" height="250">
+    </div>
+
+    <div class="info">
+      <p><strong><%= 'ADMIN' if @user.admin %></strong></p>
+      <p><strong>Name:</strong> <%= @user.name %></p>
+      <p><strong>Tickets:</strong> <%= @user.tickets %></p>
+      <p><strong>Mood:</strong>  <%= @user.mood %></p>
+      <p><strong>Height:</strong> <%= @user.height %> inches</p>
+      <p><%= link_to 'Edit', edit_user_path %></a></p>
+      <p><a href="/attractions">See attractions</a></p>
+    </div>
+  </div>
