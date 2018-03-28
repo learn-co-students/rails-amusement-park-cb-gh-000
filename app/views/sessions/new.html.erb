@@ -1,0 +1,14 @@
+<%= form_tag(sessions_path) do %>
+
+  <div class="field">
+    <label>Name: </label>
+    <%= text_field_tag "user[name]" %><br>
+  </div>
+  <div class="field">
+    <label>Password: </label>
+    <%= password_field_tag "user[password]" %><br>
+  </div>
+  <div class="actions">
+    <%= submit_tag 'Sign In' %>
+  </div>
+<% end %>
