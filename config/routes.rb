@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   resources :users
   get '/signin', to: 'sessions#new'
   resources :sessions, except: [:new]
+  resources :attractions
 
 end

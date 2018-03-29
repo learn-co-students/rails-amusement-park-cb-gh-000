@@ -24,6 +24,10 @@
     <labe>Height (in inches)</label><br>
     <%= f.number_field :height %>
   </div>
+  <div class="field">
+    <label>Check box if you are a theme park owner</label>
+    <%= f.check_box :admin, {}, true, false %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

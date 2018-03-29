@@ -1,11 +1,13 @@
 
 <div class="container">
 
+  <%= "ADMIN" if @user.admin %><br>
   name: <%= @user.name %><br>
   nausea: <%= @user.nausea %><br>
   Mood: <%= @user.mood %><br>
   happiness: <%= @user.happiness %><br>
   tickets: <%= @user.tickets %><br>
-  height: <%= @user.height %>
+  height: <%= @user.height %><br>
+  <%= link_to "See attractions", attractions_path %>
 
 </div>
