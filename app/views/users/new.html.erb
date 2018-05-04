@@ -1,0 +1,8 @@
+First time to our site? Sign up below!
+
+<%= form_for @user do |f| %>
+  <%= render "form", f:f %>
+  <%= f.label :password %><br>
+  <%= f.password_field :password %><br>
+  <%= f.submit %>
+<% end %>
